@@ -1,6 +1,10 @@
 """URLs module"""
 from django.conf import settings
-from django.conf.urls import url
+
+try:
+    from django.conf.urls import url
+except ImportError:
+    from django.urls import re_path as url
 
 from social_core.utils import setting_name
 from . import views
